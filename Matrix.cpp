@@ -1,19 +1,74 @@
 #include <bits/stdc++.h>
 #include "Matrix.h"
+#include "Other/vector_operations.cpp"
 
 //Matrix declaration
-
 
 atmla::Matrix::Matrix(int n, int m) {
     if (n <= 0 || m <= 0) {
         throw std::invalid_argument("Size of matrix must be positive");
     }
-    atmla::Matrix::size = {n, m};
+    atmla::Matrix::sizes = {n, m};
     atmla::Matrix::width = m;
     atmla::Matrix::height = n;
     data.resize(n);
     for (int i = 0; i < n; ++i) {
         data[i].resize(m);
+    }
+}
+
+atmla::Matrix::Matrix(std::vector<std::vector<double>>& values) {
+    atmla::Matrix::width = values.size();
+    atmla::Matrix::height = values[0].size();
+    atmla::Matrix::sizes = {atmla::Matrix::width, atmla::Matrix::height};
+    data.resize(height);
+    for (int i = 0; i < height; ++i) {
+        data[i].resize(width);
+    }
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            data[i][j] = values[i][j];
+        }
+    }
+}
+
+atmla::Matrix::Matrix(int n, std::string special, double lambda = 0) {
+    if (n <= 0) {
+        throw std::invalid_argument("Size of matrix must be positive");
+    }
+    atmla::Matrix::sizes = {n, n};
+    atmla::Matrix::width = n;
+    atmla::Matrix::height = n;
+    data.resize(n);
+    for (int i = 0; i < n; ++i) {
+        data[i].resize(n);
+    }
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            data[i][j] = 0;
+        }
+    }
+    
+    if (special == "identity") {
+        for (int i = 0; i < n; ++i) {
+            data[i][i] = 1.0;
+        }
+    } else if (special == "zero") {
+        for (int i = 0; i < n; ++i) {
+            data[i][i] = 0.0;
+        }
+    } else if (special == "jordan cell") {
+        for (int i = 0; i < n; ++i) {
+            data[i][i] = lambda;
+            if (i + 1 < n);
+            data[i][i + 1] = 1;
+        }
+    } else if (special == "diagonal") {
+        for (int i = 0; i < n; ++i) {
+            data[i][i] = lambda;
+        }
+    } else {
+        throw std::invalid_argument("Invalid special matrix type");
     }
 }
 
@@ -37,21 +92,57 @@ void atmla::Matrix::Set_values_manually() {
 }
 
 
-// Matrix operations with other matrix
+void atmla::Matrix::print() {
+    for (auto q : data) {
+        for (auto p : q) {
+            std::cout << p << ' ';
+        }
+        std::cout << '\n';
+    }
+}
 
+void atmla::Matrix::print_system(std::vector<double>& values) {
+    if (values.size() != height) {
+        throw std::invalid_argument("Size of input vector does not match the matrix height");
+    }
+    for  (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++ j) {
+            std::cout << data[i][j] << ' ';
+        }
+        std::cout << "| " << values[i] << '\n';
+    }
+}
+
+void atmla::Matrix::print_matrix_system(atmla::Matrix& matrix) {
+    if (matrix.height != height) {
+        throw std::invalid_argument("Matrices must have the same dimensions to print system");
+    }
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            std::cout << data[i][j] << ' ';
+        }
+        std::cout << "| ";
+        for (int j = 0; j < width; ++j) {
+            std::cout << matrix.data[i][j] << ' ';
+        }
+        std::cout << '\n';
+    }
+}
+
+// Matrix operations with other matrix
 
 void atmla::Matrix::operator=(atmla::Matrix& other) {
     if (this == &other) {
         return;
     }
-    size = other.size;
+    sizes = other.sizes;
     width = other.width;
     height = other.height;
     data = other.data;
 }
 
 atmla::Matrix& atmla::Matrix::operator+(atmla::Matrix& other) {
-    if (size != other.size) {
+    if (sizes != other.sizes) {
         throw std::invalid_argument("Matrices must have the same dimensions to add");
     }
     atmla::Matrix result(height, width);
@@ -65,7 +156,7 @@ atmla::Matrix& atmla::Matrix::operator+(atmla::Matrix& other) {
 }
 
 atmla::Matrix& atmla::Matrix::operator-(atmla::Matrix& other) {
-    if (size != other.size) {
+    if (sizes != other.sizes) {
         throw std::invalid_argument("Matrices must have the same dimensions to subtract");
     }
     atmla::Matrix result(height, width);
@@ -132,30 +223,36 @@ double atmla::Matrix::Determinant() {
     if (height != width) {
         throw std::invalid_argument("Matrix must be square to calculate the determinant");
     }
+    
     int n = width;
     double det = 1.0;
+
+    // Создаем копию матрицы
+    std::vector<std::vector<double>> mat_copy = data;
+
     for (int i = 0; i < n; i++) {
         int pivot = i;
         for (int j = i + 1; j < n; j++) {
-            if (abs(data[j][i]) > abs(data[pivot][i])) {
+            if (abs(mat_copy[j][i]) > abs(mat_copy[pivot][i])) {
                 pivot = j;
             }
         }
         if (pivot != i) {
-            std::swap(data[i], data[pivot]);
+            std::swap(mat_copy[i], mat_copy[pivot]);
             det *= -1;
         }
-        if (data[i][i] == 0) {
+        if (mat_copy[i][i] == 0) {
             return 0;
         }
-        det *= data[i][i];
+        det *= mat_copy[i][i];
         for (int j = i + 1; j < n; j++) {
-            double factor = data[j][i] / data[i][i];
+            double factor = mat_copy[j][i] / mat_copy[i][i];
             for (int k = i + 1; k < n; k++) {
-                data[j][k] -= factor * data[i][k];
+                mat_copy[j][k] -= factor * mat_copy[i][k];
             }
         }
     }
+    
     return det;
 }
 
@@ -167,6 +264,82 @@ double atmla::Matrix::Trace() {
     for (int i = 0; i < height; ++i) {
         trace += data[i][i];
     }
+}
+
+void atmla::Matrix::Gauss(std::vector<double>& values) {
+    if (values.size() != height) {
+        throw std::invalid_argument("Size of input vector does not match the matrix height");
+    }
+    int step = 0;
+    for (int i = 0; i < atmla::Matrix::height; ++i) {
+        if (atmla::Matrix::data[i][i + step] == 0) {
+            for (int k = i + 1; k < atmla::Matrix::height; ++k) {
+                if (atmla::Matrix::data[k][i + step] != 0) {
+                    std::swap(atmla::Matrix::data[i], atmla::Matrix::data[k]);
+                    std::swap(values[i], values[k]);
+                    break;
+                }
+            }
+        }
+
+        if (atmla::Matrix::data[i][i + step] == 0) {
+            step++;
+            if (i + step >= atmla::Matrix::height) {
+                return;
+            }
+            --i;continue;
+        }
+
+        for (int j = i + 1; j < atmla::Matrix::height; ++j) {
+            if (atmla::Matrix::data[j][i + step] != 0) {
+                double factor = atmla::Matrix::data[j][i + step];
+                atmla::Matrix::data[j] = (atmla::Matrix::data[j] * atmla::Matrix::data[i][i + step]) - (atmla::Matrix::data[i] * factor);
+                values[j] = values[j] * atmla::Matrix::data[i][i + step] - values[i] * factor;
+            }
+        }
+    }
+}
+
+atmla::Matrix atmla::Matrix::Inverse() {
+    if (width != height) {
+        throw std::invalid_argument("Matrix must be square to calculate its inverse");
+    }
+    double det = Determinant();
+    if (det == 0) {
+        throw std::runtime_error("Matrix is not invertible");
+    }
+    atmla::Matrix result(height, "identity");
+
+    //forward
+    for (int i = 0; i < atmla::Matrix::height; i++) {
+        if (atmla::Matrix::data[i][i] == 0) {
+            for (int k = i + 1; k < atmla::Matrix::height; ++k) {
+                if (atmla::Matrix::data[k][i] != 0) {
+                    std::swap(atmla::Matrix::data[i], atmla::Matrix::data[k]);
+                    std::swap(result.data[i], result.data[k]);
+                    break;
+                }
+            }
+        }
+
+        for (int j = i + 1; j < atmla::Matrix::height; ++j) {
+            if (atmla::Matrix::data[j][i] != 0) {
+                double factor = atmla::Matrix::data[j][i];
+                atmla::Matrix::data[j] = (atmla::Matrix::data[j] * atmla::Matrix::data[i][i]) - (atmla::Matrix::data[i] * factor);
+                result.data[j] = (result.data[j] * atmla::Matrix::data[i][i]) - (result.data[i] * factor);
+            }
+        }
+    }
+
+    //back
+    for (int i = height - 1; i >= 0; --i) {
+        for (int j = i - 1; j >= 0; --j) {
+            double factor = atmla::Matrix::data[j][i];
+            atmla::Matrix::data[j] = (atmla::Matrix::data[j] * atmla::Matrix::data[i][i]) - (atmla::Matrix::data[i] * factor);
+            result.data[j] = (result.data[j] * atmla::Matrix::data[i][i]) - (result.data[i] * factor);
+        }
+    }
+    return result;
 }
 
 
@@ -198,6 +371,19 @@ atmla::Matrix atmla::Matrix::operator*(double scalar) {
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
             result.data[i][j] = data[i][j] * scalar;
+        }
+    }
+    return result;
+}
+
+atmla::Matrix atmla::Matrix::operator/(double scalar) {
+    if (scalar == 0) {
+        throw std::runtime_error("Division by zero is not allowed");
+    }
+    atmla::Matrix result(height, width);
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            result.data[i][j] = data[i][j] / scalar;
         }
     }
     return result;

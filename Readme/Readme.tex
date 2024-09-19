@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{hyperref}
+
+\title{README: How to Use the Matrix Class}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This project provides a class for working with matrices, including basic operations such as addition, subtraction, multiplication, and transposition. This document explains how to use the \texttt{Matrix} class and lists the available functions.
+
+\section{Usage}
+\subsection{Step 1: Include Necessary Files}
+To use the \texttt{Matrix} class, you need to include the following files in your \texttt{main.cpp}:
+
+\begin{verbatim}
+#include "Matrix.h"
+#include "Matrix.cpp"
+\end{verbatim}
+
+These files contain the definitions and implementations of all the functions for working with matrices.
+
+\subsection{Step 2: Creating a Matrix}
+To create a matrix, call the constructor of the \texttt{Matrix} class, passing the number of rows and columns:
+
+\begin{verbatim}
+Matrix matrix1(3, 3); // Creating a 3x3 matrix
+\end{verbatim}
+
+\subsection{Step 3: Setting Matrix Values}
+To set the values of a matrix, you can use the \texttt{Set\_values\_from\_vector} method. This method takes a 2D vector of values:
+
+\begin{verbatim}
+std::vector<std::vector<double>> values = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+matrix1.Set_values_from_vector(values);
+\end{verbatim}
+
+\subsection{Step 4: Basic Operations}
+The \texttt{Matrix} class supports the following basic operations:
+
+\begin{itemize}
+    \item \texttt{Matrix operator+(Matrix\& other)}: Adds two matrices.
+    \item \texttt{Matrix operator-(Matrix\& other)}: Subtracts one matrix from another.
+    \item \texttt{Matrix operator*(Matrix\& other)}: Multiplies two matrices.
+    \item \texttt{void Transpose()}: Transposes the matrix.
+    \item \texttt{double Determinant()}: Calculates the determinant (only for square matrices).
+    \item \texttt{double Trace()}: Calculates the trace (sum of the diagonal elements) of the matrix (only for square matrices).
+\end{itemize}
+
+Examples:
+
+\begin{verbatim}
+// Multiplying two matrices
+Matrix matrix2(3, 3);
+Matrix result = matrix1 * matrix2;
+
+// Transposing a matrix
+matrix1.Transpose();
+\end{verbatim}
+
+\section{Additional Features}
+\begin{itemize}
+    \item The matrix class also supports adding and subtracting scalars:
+    \begin{verbatim}
+    Matrix matrix3 = matrix1 + 5.0; // Adds a scalar to each element
+    \end{verbatim}
+    \item The \texttt{Set\_values\_manually} method allows you to input matrix values manually from the console:
+    \begin{verbatim}
+    matrix1.Set_values_manually();
+    \end{verbatim}
+\end{itemize}
+
+\section{Conclusion}
+The \texttt{Matrix} class provides convenient methods for working with matrices. You can perform basic mathematical operations such as addition, subtraction, multiplication, transposition, and calculate the determinant and trace of the matrix. To use the class, simply include \texttt{Matrix.h} and make use of the available functions.
+\end{document}
