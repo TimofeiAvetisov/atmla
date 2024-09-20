@@ -1,19 +1,14 @@
-#include "Matrix.cpp"
+#include "Source/Matrix/Constructor.cpp"
+#include "Header/Supporting/Vector_operations.h"
+
 
 int main() {
     int n;
     std::cin >> n;
-    std::vector<std::vector<double>> values(n, std::vector<double>(n));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            std::cin >> values[i][j];
-        }
-    }
-    atmla::Matrix matrix1(values);
-    //std::vector<double> values1 = {0, 0};
-    //matrix1.Gauss(values1);
-    //matrix1.print();
-    atmla::Matrix result = matrix1.Inverse();
-
-    matrix1.print_matrix_system(result);
+    std::string line;
+    std::getline(std::cin, line);
+    std::cout << "\'" << line << "\'";
+    atmla::Matrix<atmla::Fraction> matrix(n, n);
+    matrix.Set_values_manually();
+    std::cout << matrix;
 }

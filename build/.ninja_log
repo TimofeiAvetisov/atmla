@@ -1,0 +1,8 @@
+# ninja log v6
+10	840	7485453132207629	CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj	1fe683cb6c6f7629
+41	985	7485452698572552	CMakeFiles/my_program.dir/main.cpp.obj	9b554abece6f8857
+28	1003	7485452698443749	CMakeFiles/my_program.dir/Source/Matrix/Constructor.cpp.obj	1818915f89a45442
+34	1112	7485452698512676	CMakeFiles/my_program.dir/Source/Matrix/Matrix.cpp.obj	cc5144ebd551a8c
+842	1002	7485453140517454	my_program.exe	8771813a94dc6e12
+11	841	7485453666587775	CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj	1fe683cb6c6f7629
+843	1002	7485453674896312	my_program.exe	8771813a94dc6e12

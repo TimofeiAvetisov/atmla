@@ -1,12 +1,16 @@
+#include <bits/stdc++.h>
+#include "../../Source/Supporting/Fraction/Fraction_constructors.cpp"
+
 namespace atmla
 {
+    template<typename T>
     class Matrix
     {
         public:
             int height;
             int width;
             std::pair<int, int> sizes;
-            std::vector<std::vector<double>> data;
+            std::vector<std::vector<T>> data;
             /**
              * @brief Matrix constructor with given dimensions.
              * 
@@ -24,7 +28,8 @@ namespace atmla
              * 
              * @param values Vector of values to initialize the matrix.
              */
-            Matrix(std::vector<std::vector<double>>& values);
+            template<typename U>
+            Matrix(std::vector<std::vector<U>>& values);
             /**
              * @brief Constructor for special types of matrices.
              * 
@@ -35,7 +40,7 @@ namespace atmla
              * @param lambda Parameter for certain types of special matrices (e.g., diagonal and Jordan block).
              * @throw std::invalid_argument If the special matrix type is invalid or the size is non-positive.
              */
-            Matrix(int n, std::string special, double lambda);
+            Matrix(int n, std::string special, T lambda = T());
 
             /**
              * @brief Sets the matrix values from a 2D vector.
@@ -43,7 +48,7 @@ namespace atmla
              * @param values Input vector of values to set the matrix elements.
              * @throw std::invalid_argument If the size of the input vector does not match the matrix dimensions.
              */
-            void Set_values_from_vector(std::vector<std::vector<double>>& values);
+            void Set_values_from_vector(std::vector<std::vector<T>>& values);
             /**
              * @brief Manually set matrix values.
              * 
@@ -65,7 +70,7 @@ namespace atmla
              * @param values Vector of right-hand sides.
              * @throw std::invalid_argument If the size of the vector does not match the number of rows in the matrix.
              */
-            void print_system(std::vector<double>& values);
+            void print_system(std::vector<T>& values);
 
             /**
              * @brief Prints two matrices side by side as a system of equations.
@@ -118,7 +123,7 @@ namespace atmla
              * @param values Vector of right-hand sides of the equations.
              * @throw std::invalid_argument If the size of the vector does not match the number of rows in the matrix.
              */
-            void Gauss(std::vector<double>& values);
+            void Gauss(std::vector<T>& values);
             /**
              * @brief Computes the inverse of the matrix.
              * 
@@ -135,5 +140,16 @@ namespace atmla
             Matrix operator-(double scalar);
             Matrix operator*(double scalar);
             Matrix operator/(double scalar);
+
+            // output
+            friend std::ostream& operator<<(std::ostream& os, const atmla::Matrix<T>& matrix) {
+                for (int i = 0; i < matrix.height; ++i) {
+                    for (int j = 0; j < matrix.width; ++j) {
+                        os << matrix.data[i][j] << '\t';
+                    }
+                    os << '\n';
+                }
+                return os;
+            }
     };
 }
