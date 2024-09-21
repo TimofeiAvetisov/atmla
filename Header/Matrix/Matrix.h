@@ -42,7 +42,7 @@ namespace atmla
              * @param lambda Parameter for certain types of special matrices (e.g., diagonal and Jordan block).
              * @throw std::invalid_argument If the special matrix type is invalid or the size is non-positive.
              */
-            Matrix(int n, std::string special, T lambda = T());
+            Matrix(int n, std::string special, T lambda = T(0));
 
             /**
              * @brief Sets the matrix values from a 2D vector.

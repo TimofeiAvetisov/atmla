@@ -1,82 +1,94 @@
 \documentclass{article}
-\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc} % Кодировка для кириллицы
+\usepackage[russian,english]{babel} % Поддержка русского языка
+\usepackage{soul} % Для перечеркнутого текста
+\usepackage{hyperref} % Для гиперссылок
+\usepackage{amsmath} % Для математики
+\usepackage{geometry} % Для контроля за полями документа
+\geometry{a4paper, margin=1in} % Задает поля
 
-\title{README: How to Use the Matrix Class}
-\author{}
-\date{\today}
+\title{Документация по проекту с матрицами}
+\author{Timofei Avetisov}
+\date{}
 
 \begin{document}
 
 \maketitle
 
-\section{Introduction}
-This project provides a class for working with matrices, including basic operations such as addition, subtraction, multiplication, and transposition. This document explains how to use the \texttt{Matrix} class and lists the available functions.
+\section{Вступление}
+Данный проект был написан за несколько дней, так что не советую читать \st{говно} код. Но с его помощью можно делать разные операции с матрицами, которые обычно лень выполнять вручную.
 
-\section{Usage}
-\subsection{Step 1: Include Necessary Files}
-To use the \texttt{Matrix} class, you need to include the following files in your \texttt{main.cpp}:
-
+\section{Как этим пользоваться}
+Для начала необходимо скачать всё с \href{https://github.com/TimofeiAvetisov/atmla.git}{GitHub}. Откройте проект и приготовьтесь. Работать нужно только с файлом \texttt{main.cpp}. В начале обязательно напишите:
 \begin{verbatim}
-#include "Matrix.h"
-#include "Matrix.cpp"
+#include "Header/Matrix/Matrix.h"
 \end{verbatim}
+Это автоматически подключит \texttt{<bits/stdc++.h>}. Если нужно что-то ещё — смело подключайте. Далее пишите код.
 
-These files contain the definitions and implementations of all the functions for working with matrices.
-
-\subsection{Step 2: Creating a Matrix}
-To create a matrix, call the constructor of the \texttt{Matrix} class, passing the number of rows and columns:
-
+\section{Как взаимодействовать с объектами}
+На данный момент существует всего 2 класса, которые лежат в \texttt{namespace atmla} (увековечил своё имя). Для создания матрицы используйте:
 \begin{verbatim}
-Matrix matrix1(3, 3); // Creating a 3x3 matrix
+atmla::Matrix{\textit{datatype}} name(parameters);
 \end{verbatim}
+\textit{datatype} может быть \texttt{int}, \texttt{double} или \texttt{atmla::Fraction}. Конструкторы бывают следующие:
 
-\subsection{Step 3: Setting Matrix Values}
-To set the values of a matrix, you can use the \texttt{Set\_values\_from\_vector} method. This method takes a 2D vector of values:
+\begin{enumerate}
+    \item \texttt{matrix(int n, int m)} — создаёт пустую матрицу размером $n \times m$.
+    \item \texttt{matrix(std::vector<std::vector{\textit{datatype}}} values)} — создаёт матрицу из вектора \texttt{values} (не знаю, зачем это нужно). Тип данных \texttt{values} может отличаться от типа данных матрицы (всё нормально приведётся).
+    \item \texttt{matrix(int n, std::string special, \textit{datatype} lambda)} — создаёт специальную матрицу размером $n \times n$. \texttt{special} может принимать следующие значения:
+    \begin{itemize}
+        \item \texttt{"identity"} — создаёт единичную матрицу.
+        \item \texttt{"zero"} — создаёт нулевую матрицу.
+        \item \texttt{"jordan cell"} — Жорданова клетка с элементами \texttt{lambda} на диагонали (по умолчанию 0).
+        \item \texttt{"diagonal"} — диагональная матрица с элементами \texttt{lambda} на диагонали (по умолчанию 0).
+    \end{itemize}
+\end{enumerate}
 
-\begin{verbatim}
-std::vector<std::vector<double>> values = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
-};
-matrix1.Set_values_from_vector(values);
-\end{verbatim}
+После создания матрицы её размеры изменить нельзя, но можно менять значения. Для этого предусмотрены следующие методы класса:
 
-\subsection{Step 4: Basic Operations}
-The \texttt{Matrix} class supports the following basic operations:
+\begin{enumerate}
+    \item \texttt{matrix.Set\_values\_from\_vector(std::vector<std::vector{\textit{datatype}}} values)} — тип данных в векторе должен совпадать с типом данных матрицы. Эта функция просто запишет данные из вектора в матрицу.
+    \item \texttt{matrix.Set\_values\_manually()} — вводите все данные вручную.
+\end{enumerate}
 
+\section{Функции вывода и операторы}
+Матрицу можно вывести несколькими способами:
+\begin{enumerate}
+    \item Метод \texttt{matrix.print()} — просто выведет матрицу (почти бесполезно).
+    \item Вывод в стандартный поток вывода:
+    \begin{verbatim}
+    std::cout << matrix;
+    \end{verbatim}
+\end{enumerate}
+
+Существуют специальные способы вывода:
+\begin{enumerate}
+    \item Метод \texttt{matrix.print\_system(std::vector{\textit{datatype}} values)} — выведет матрицу и столбец \texttt{values} как СЛУ (система линейных уравнений). Тип данных в \texttt{values} может отличаться от типа данных матрицы.
+    \item Метод \texttt{matrix.print\_matrix\_system(atmla::Matrix{\textit{datatype}} other)} — выведет систему матричных уравнений.
+\end{enumerate}
+
+Также перегружены стандартные операторы для матриц:
 \begin{itemize}
-    \item \texttt{Matrix operator+(Matrix\& other)}: Adds two matrices.
-    \item \texttt{Matrix operator-(Matrix\& other)}: Subtracts one matrix from another.
-    \item \texttt{Matrix operator*(Matrix\& other)}: Multiplies two matrices.
-    \item \texttt{void Transpose()}: Transposes the matrix.
-    \item \texttt{double Determinant()}: Calculates the determinant (only for square matrices).
-    \item \texttt{double Trace()}: Calculates the trace (sum of the diagonal elements) of the matrix (only for square matrices).
+    \item Сложение, вычитание, умножение матриц.
+    \item Умножение, деление, сложение, вычитание на скаляр (каждый элемент матрицы будет поделен на скаляр).
 \end{itemize}
 
-Examples:
+\section{Другие функции}
+\begin{enumerate}
+    \item \texttt{matrix.Transpose()} — транспонирует матрицу.
+    \item \texttt{matrix.Determinant()} — возвращает определитель матрицы.
+    \item \texttt{matrix.Trace()} — возвращает след матрицы.
+    \item \texttt{matrix.gauss(std::vector{\textit{datatype}} values)} — приводит матрицу к улучшенному ступенчатому виду, изменяя также \texttt{values}. После этого вызовите \texttt{matrix.print\_system(values)}, чтобы получить решение. Тип данных \texttt{values} может отличаться от типа данных матрицы.
+    \item \texttt{matrix.Inverse()} — находит обратную матрицу.
+\end{enumerate}
 
-\begin{verbatim}
-// Multiplying two matrices
-Matrix matrix2(3, 3);
-Matrix result = matrix1 * matrix2;
+\section{Конец темы}
+Наводя курсор на функцию, вы увидите информацию о её параметрах и возможных ошибках.
 
-// Transposing a matrix
-matrix1.Transpose();
-\end{verbatim}
+\section{Заключение}
+После написания кода, в терминале зайдите в папку \texttt{builds}, выполните команду \texttt{cmake ..}, затем \texttt{cmake --build .}. После этого в папке \texttt{build} появится исполняемый файл \texttt{matrix.exe}, связанный с \texttt{main.cpp}.
 
-\section{Additional Features}
-\begin{itemize}
-    \item The matrix class also supports adding and subtracting scalars:
-    \begin{verbatim}
-    Matrix matrix3 = matrix1 + 5.0; // Adds a scalar to each element
-    \end{verbatim}
-    \item The \texttt{Set\_values\_manually} method allows you to input matrix values manually from the console:
-    \begin{verbatim}
-    matrix1.Set_values_manually();
-    \end{verbatim}
-\end{itemize}
+Удачи!
 
-\section{Conclusion}
-The \texttt{Matrix} class provides convenient methods for working with matrices. You can perform basic mathematical operations such as addition, subtraction, multiplication, transposition, and calculate the determinant and trace of the matrix. To use the class, simply include \texttt{Matrix.h} and make use of the available functions.
 \end{document}
