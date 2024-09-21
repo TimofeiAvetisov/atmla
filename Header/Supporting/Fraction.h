@@ -16,6 +16,16 @@ namespace atmla {
             Fraction operator-(const Fraction& other) const;
             Fraction operator*(const Fraction& other) const;
             Fraction operator/(const Fraction& other) const;
+            void operator+=(const Fraction& other);
+            void operator-=(const Fraction& other);
+            void operator*=(const Fraction& other);
+            void operator/=(const Fraction& other);
+            bool operator==(const Fraction& other) const;
+            bool operator!=(const Fraction& other) const;
+            bool operator<(const Fraction& other) const;
+            bool operator>(const Fraction& other) const;
+            bool operator<=(const Fraction& other) const;
+            bool operator>=(const Fraction& other) const;
 
             friend std::ostream& operator<<(std::ostream& os, const atmla::Fraction& f) {
                 if (f.denominator == 1) {
@@ -28,7 +38,7 @@ namespace atmla {
 
             friend std::istream& operator>>(std::istream& is, atmla::Fraction& f) {
                 std::string input;
-                std::getline(is, input);
+                is >> input;
                 size_t slash_pos = input.find('/');
                 if (slash_pos == std::string::npos) {
                     f.numerator = std::stoi(input);
@@ -39,5 +49,10 @@ namespace atmla {
                 }
                 f.simplify();
             }
+
     };
 }
+
+atmla::Fraction abs(atmla::Fraction& f) {return atmla::Fraction(abs(f.numerator), abs(f.denominator));};
+#include "../../Source/Supporting/Fraction/Fraction_constructors.h"
+#include "../../Source/Supporting/Fraction/Fraction_operators.h"

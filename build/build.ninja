@@ -44,31 +44,10 @@ cmake_ninja_workdir = C$:/Users/Timofei/LA/build/
 
 build cmake_object_order_depends_target_my_program: phony || .
 
-build CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj: CXX_COMPILER__my_program_unscanned_ C$:/Users/Timofei/LA/Source/Supporting/Vector_operations.cpp || cmake_object_order_depends_target_my_program
-  DEP_FILE = CMakeFiles\my_program.dir\Source\Supporting\Vector_operations.cpp.obj.d
-  FLAGS = -std=gnu++1z
-  INCLUDES = -IC:/Users/Timofei/LA/header
-  OBJECT_DIR = CMakeFiles\my_program.dir
-  OBJECT_FILE_DIR = CMakeFiles\my_program.dir\Source\Supporting
-
-build CMakeFiles/my_program.dir/Source/Matrix/Constructor.cpp.obj: CXX_COMPILER__my_program_unscanned_ C$:/Users/Timofei/LA/Source/Matrix/Constructor.cpp || cmake_object_order_depends_target_my_program
-  DEP_FILE = CMakeFiles\my_program.dir\Source\Matrix\Constructor.cpp.obj.d
-  FLAGS = -std=gnu++1z
-  INCLUDES = -IC:/Users/Timofei/LA/header
-  OBJECT_DIR = CMakeFiles\my_program.dir
-  OBJECT_FILE_DIR = CMakeFiles\my_program.dir\Source\Matrix
-
-build CMakeFiles/my_program.dir/Source/Matrix/Matrix.cpp.obj: CXX_COMPILER__my_program_unscanned_ C$:/Users/Timofei/LA/Source/Matrix/Matrix.cpp || cmake_object_order_depends_target_my_program
-  DEP_FILE = CMakeFiles\my_program.dir\Source\Matrix\Matrix.cpp.obj.d
-  FLAGS = -std=gnu++1z
-  INCLUDES = -IC:/Users/Timofei/LA/header
-  OBJECT_DIR = CMakeFiles\my_program.dir
-  OBJECT_FILE_DIR = CMakeFiles\my_program.dir\Source\Matrix
-
 build CMakeFiles/my_program.dir/main.cpp.obj: CXX_COMPILER__my_program_unscanned_ C$:/Users/Timofei/LA/main.cpp || cmake_object_order_depends_target_my_program
   DEP_FILE = CMakeFiles\my_program.dir\main.cpp.obj.d
   FLAGS = -std=gnu++1z
-  INCLUDES = -IC:/Users/Timofei/LA/header
+  INCLUDES = -IC:/Users/Timofei/LA/Header/Matrix -IC:/Users/Timofei/LA/Header/Supporting -IC:/Users/Timofei/LA/Source/Matrix -IC:/Users/Timofei/LA/Source/Supporting/Vector -IC:/Users/Timofei/LA/Source/Supporting/Fraction
   OBJECT_DIR = CMakeFiles\my_program.dir
   OBJECT_FILE_DIR = CMakeFiles\my_program.dir
 
@@ -80,7 +59,7 @@ build CMakeFiles/my_program.dir/main.cpp.obj: CXX_COMPILER__my_program_unscanned
 #############################################
 # Link the executable my_program.exe
 
-build my_program.exe: CXX_EXECUTABLE_LINKER__my_program_ CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj CMakeFiles/my_program.dir/Source/Matrix/Constructor.cpp.obj CMakeFiles/my_program.dir/Source/Matrix/Matrix.cpp.obj CMakeFiles/my_program.dir/main.cpp.obj
+build my_program.exe: CXX_EXECUTABLE_LINKER__my_program_ CMakeFiles/my_program.dir/main.cpp.obj
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\my_program.dir
   POST_BUILD = cd .

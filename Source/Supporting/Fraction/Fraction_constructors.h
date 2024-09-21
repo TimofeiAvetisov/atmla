@@ -1,5 +1,3 @@
-#include "../../../Header/Supporting/Fraction.h"
-
 #define cycles 10
 #define precision 5e-4
 
@@ -25,7 +23,7 @@ atmla::Fraction::Fraction(double number) {
     int counter = 0;
 
     std::valarray<double> vec_1{double((int) number), 1}, vec_2{1,0}, temporary;
-    
+
     while(decimal_part > precision & counter < cycles){
         new_number = 1 / decimal_part;
         whole_part = (int) new_number;
@@ -37,12 +35,17 @@ atmla::Fraction::Fraction(double number) {
         decimal_part = new_number - whole_part;
         counter += 1;
     }
-    atmla::Fraction numerator = sign * vec_1[0];
-    atmla::Fraction denominator = vec_1[1];
+    atmla::Fraction::numerator = sign * vec_1[0];
+    atmla::Fraction::denominator = vec_1[1];
+    simplify();
 }
 
 void atmla::Fraction::simplify() {
     int gcd = std::__gcd(numerator, denominator);
     numerator /= gcd;
     denominator /= gcd;
+    if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
 }

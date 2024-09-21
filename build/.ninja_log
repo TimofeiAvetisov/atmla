@@ -1,8 +1,15 @@
 # ninja log v6
-10	840	7485453132207629	CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj	1fe683cb6c6f7629
-41	985	7485452698572552	CMakeFiles/my_program.dir/main.cpp.obj	9b554abece6f8857
-28	1003	7485452698443749	CMakeFiles/my_program.dir/Source/Matrix/Constructor.cpp.obj	1818915f89a45442
-34	1112	7485452698512676	CMakeFiles/my_program.dir/Source/Matrix/Matrix.cpp.obj	cc5144ebd551a8c
-842	1002	7485453140517454	my_program.exe	8771813a94dc6e12
 11	841	7485453666587775	CMakeFiles/my_program.dir/Source/Supporting/Vector_operations.cpp.obj	1fe683cb6c6f7629
-843	1002	7485453674896312	my_program.exe	8771813a94dc6e12
+12	2183	7486386574024192	CMakeFiles/my_program.dir/main.cpp.obj	9ae68869d54c5047
+13	994	7486370887567780	CMakeFiles/my_program.dir/Source/Supporting/Fraction/Fraction_constructors.cpp.obj	4b4043c6c72422a2
+10	1503	7486356102366790	CMakeFiles/my_program.dir/Source/Matrix/Constructor.cpp.obj	bf4f0ca0a9028bf4
+34	1112	7485452698512676	CMakeFiles/my_program.dir/Source/Matrix/Matrix.cpp.obj	cc5144ebd551a8c
+2184	2526	7486386595743437	my_program.exe	c3ae4eb31641dd25
+41	963	7486370887846894	CMakeFiles/my_program.dir/Source/Supporting/Fraction/Fraction_operators.cpp.obj	35328757f5e39099
+9	1689	7486368054731353	CMakeFiles/my_program.dir/Source/Supporting/Vector/Vector_operations.cpp.obj	9bf312123ad4e8da
+55	1239	7486356102832418	CMakeFiles/my_program.dir/Source/Matrix/Output.cpp.obj	1e5e6b35ec51328a
+102	1396	7486356103291163	CMakeFiles/my_program.dir/Source/Matrix/Functions.cpp.obj	6726719bb11c100d
+37	1448	7486356102656827	CMakeFiles/my_program.dir/Source/Matrix/Operations.cpp.obj	fea6993490d70e83
+72	1184	7486356102993167	CMakeFiles/my_program.dir/Source/Matrix/Scalar_operations.cpp.obj	6fa690abb845080c
+12	2252	7486388342060603	CMakeFiles/my_program.dir/main.cpp.obj	9ae68869d54c5047
+2254	2588	7486388364474399	my_program.exe	c3ae4eb31641dd25

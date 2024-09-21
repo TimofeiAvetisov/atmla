@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
-#include "../../Source/Supporting/Fraction/Fraction_constructors.cpp"
+#include <valarray>
+#include "../Supporting/Fraction.h"
+#include "../Supporting/Vector_operations.h"
 
 namespace atmla
 {
@@ -70,7 +72,8 @@ namespace atmla
              * @param values Vector of right-hand sides.
              * @throw std::invalid_argument If the size of the vector does not match the number of rows in the matrix.
              */
-            void print_system(std::vector<T>& values);
+            template<typename U>
+            void print_system(std::vector<U>& values);
 
             /**
              * @brief Prints two matrices side by side as a system of equations.
@@ -81,16 +84,17 @@ namespace atmla
              * @param matrix The matrix to be printed alongside the current matrix.
              * @throw std::invalid_argument If the heights of the matrices are not equal.
              */
-            void print_matrix_system(Matrix& matrix);
+            template<typename U>
+            void print_matrix_system(Matrix<U>& matrix);
 
             // Matrix operations with other matrix
-            void operator=(Matrix& other_matrix);
-            Matrix& operator+(Matrix& other_matrix);
-            Matrix& operator-(Matrix& other_matrix);
-            Matrix& operator*(Matrix& other_matrix);
-            void operator*=(Matrix& other_matrix);
-            void operator+=(Matrix& other_matrix);
-            void operator-=(Matrix& other_matrix);
+            void operator=(Matrix<T>& other_matrix);
+            Matrix<T>& operator+(Matrix<T>& other_matrix);
+            Matrix<T>& operator-(Matrix<T>& other_matrix);
+            Matrix<T>& operator*(Matrix<T>& other_matrix);
+            void operator*=(Matrix<T>& other_matrix);
+            void operator+=(Matrix<T>& other_matrix);
+            void operator-=(Matrix<T>& other_matrix);
             /**
              * @brief Transposes the current matrix.
              * 
@@ -105,7 +109,7 @@ namespace atmla
              * @return double The determinant of the matrix.
              * @throw std::invalid_argument If the matrix is not square.
              */
-            double Determinant();
+            T Determinant();
             /**
              * @brief Computes the trace of the matrix.
              * 
@@ -114,7 +118,7 @@ namespace atmla
              * @return double The trace of the matrix.
              * @throw std::invalid_argument If the matrix is not square.
              */
-            double Trace();
+            T Trace();
             /**
              * @brief Solves a system of linear equations using Gaussian elimination.
              * 
@@ -133,13 +137,13 @@ namespace atmla
              * @throw std::invalid_argument If the matrix is not square.
              * @throw std::runtime_error If the matrix is not invertible.
              */
-            Matrix Inverse();
+            Matrix<T> Inverse();
 
             // Matrix operations with scalar
-            Matrix operator+(double scalar);
-            Matrix operator-(double scalar);
-            Matrix operator*(double scalar);
-            Matrix operator/(double scalar);
+            Matrix<T> operator+(T scalar);
+            Matrix<T> operator-(T scalar);
+            Matrix<T> operator*(T scalar);
+            Matrix<T> operator/(T scalar);
 
             // output
             friend std::ostream& operator<<(std::ostream& os, const atmla::Matrix<T>& matrix) {
@@ -153,3 +157,12 @@ namespace atmla
             }
     };
 }
+
+#include "../../Source/Matrix/Constructor.h"
+#include "../../Source/Matrix/Operations.h"
+#include "../../Source/Matrix/Scalar_operations.h"
+#include "../../Source/Matrix/output.h"
+#include "../../Source/Matrix/Functions.h"
+template class atmla::Matrix<int>;
+template class atmla::Matrix<double>;
+template class atmla::Matrix<atmla::Fraction>;

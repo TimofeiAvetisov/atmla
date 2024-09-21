@@ -1,44 +1,50 @@
-#include "../../../Header/Supporting/Vector_operations.h"
-
-std::vector<double> operator+(const std::vector<double>& v, const std::vector<double>& u) {
+template<typename T>
+std::vector<T> operator+(const std::vector<T>& v, const std::vector<T>& u) {
     if (v.size() != u.size()) {
         throw std::invalid_argument("Vectors must have the same size");
     }
 
-    std::vector<double> result(v.size());
+    std::vector<T> result(v.size());
     for (size_t i = 0; i < v.size(); ++i) {
         result[i] = v[i] + u[i];
     }
     return result;
 }
 
-std::vector<double> operator-(const std::vector<double>& v, const std::vector<double>& u) {
+template<typename T>
+std::vector<T> operator-(const std::vector<T>& v, const std::vector<T>& u) {
     if (v.size()!= u.size()) {
         throw std::invalid_argument("Vectors must have the same size");
     }
 
-    std::vector<double> result(v.size());
+    std::vector<T> result(v.size());
     for (size_t i = 0; i < v.size(); ++i) {
         result[i] = v[i] - u[i];
     }
     return result;
 }
 
-std::vector<double> operator*(std::vector<double>& v, double scalar) {
-    std::vector<double> result(v.size());
+template<typename T>
+std::vector<T> operator*(std::vector<T>& v, T scalar) {
+    std::vector<T> result(v.size());
     for (size_t i = 0; i < v.size(); ++i) {
         result[i] = scalar * v[i];
     }
     return result;
 }
 
-std::vector<double> operator/(std::vector<double>& v, double scalar) {
+template<typename T>
+std::vector<T> operator/(std::vector<T>& v, T scalar) {
     if (scalar == 0) {
         throw std::invalid_argument("Division by zero is not allowed");
     }
-    std::vector<double> result(v.size());
+    std::vector<T> result(v.size());
     for (size_t i = 0; i < v.size(); ++i) {
         result[i] = v[i] / scalar;
     }
     return result;
 }
+
+template class std::vector<int>;
+template class std::vector<double>;
+template class std::vector<atmla::Fraction>;

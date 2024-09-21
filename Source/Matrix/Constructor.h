@@ -1,13 +1,17 @@
+/*
 #include "../../Header/Matrix/Matrix.h"
+#include "../../Header/Supporting/Fraction.h"
+#include "../../Header/Supporting/Vector_operations.h"
+*/
 
 template<typename T>
 atmla::Matrix<T>::Matrix(int n, int m) {
     if (n <= 0 || m <= 0) {
         throw std::invalid_argument("Size of matrix must be positive");
     }
-    atmla::Matrix<T>::sizes = {n, m};
-    atmla::Matrix<T>::width = m;
-    atmla::Matrix<T>::height = n;
+    sizes = {n, m};
+    width = m;
+    height = n;
     data.resize(n, std::vector<T>(m));
 }
 
@@ -15,12 +19,12 @@ atmla::Matrix<T>::Matrix(int n, int m) {
 template<typename T>
 template<typename U>
 atmla::Matrix<T>::Matrix(std::vector<std::vector<U>>& values) {
-    atmla::Matrix<T>::width = values.size();
-    atmla::Matrix<T>::height = values[0].size();
-    if (atmla::Matrix<T>::width == 0 || atmla::Matrix<T>::height == 0) {
+    width = values.size();
+    height = values[0].size();
+    if (width == 0 || height == 0) {
         throw std::invalid_argument("Size of input vector must be positive");
     }
-    atmla::Matrix<T>::sizes = {atmla::Matrix<T>::width, atmla::Matrix<T>::height};
+    sizes = {width, height};
     data.resize(height, std::vector<T>(width));
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
@@ -34,9 +38,9 @@ atmla::Matrix<T>::Matrix(int n, std::string special, T lambda) {
     if (n <= 0) {
         throw std::invalid_argument("Size of matrix must be positive");
     }
-    atmla::Matrix<T>::sizes = {n, n};
-    atmla::Matrix<T>::width = n;
-    atmla::Matrix<T>::height = n;
+    sizes = {n, n};
+    width = n;
+    height = n;
     data.resize(n, std::vector<T>(n));
     
     if (special == "identity") {
