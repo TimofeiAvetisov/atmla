@@ -132,8 +132,14 @@ INPUT .\Readme.aux
 INPUT .\Readme.aux
 INPUT Readme.aux
 OUTPUT Readme.aux
-OUTPUT Readme.out
+INPUT .\Readme.out
+INPUT .\Readme.out
+INPUT Readme.out
+INPUT Readme.out
 OUTPUT Readme.pdf
+INPUT .\Readme.out
+INPUT .\Readme.out
+OUTPUT Readme.out
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\larm1728.tfm
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\larm1200.tfm
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
@@ -154,9 +160,10 @@ INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\tex\latex\cyrillic\t2acmtt.
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\tex\latex\cyrillic\t2acmtt.fd
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\tex\latex\cyrillic\t2acmtt.fd
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\latt1000.tfm
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\labx1000.tfm
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\lati1000.tfm
-INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
-INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\tfm\lh\lh-t2a\lait1000.tfm
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
@@ -169,6 +176,8 @@ INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\lai
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\lait1000.pk
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\lati1000.pk
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\lati1000.pk
+INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1000.pk
+INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\labx1000.pk
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\latt1000.pk
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\latt1000.pk
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1000.pk
@@ -181,5 +190,9 @@ INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\lar
 INPUT C:\Users\Timofei\AppData\Local\MiKTeX\fonts\pk\ljfour\lh\lh-t2a\dpi600\larm1728.pk
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
+INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Timofei\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb

@@ -155,6 +155,14 @@ namespace atmla
                 }
                 return os;
             }
+            friend std::istream& operator>>(std::istream& is, atmla::Matrix<T>& matrix) {
+                for (int i = 0; i < matrix.height; ++i) {
+                    for (int j = 0; j < matrix.width; ++j) {
+                        is >> matrix.data[i][j];
+                    }
+                }
+                return is;
+            }
     };
 }
 

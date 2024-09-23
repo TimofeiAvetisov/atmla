@@ -26,16 +26,28 @@
 \end{verbatim}
 Это автоматически подключит \texttt{<bits/stdc++.h>}. Если нужно что-то ещё — смело подключайте. Далее пишите код.
 
+Немного расскажу прo \texttt{atmla::Fraction}. У класса есть два поля - numerator, denominarator. Конструкторы есть следующие:
+\begin{enumerate}
+    \item \texttt{atmla::Fraction f(int n, int m)} - создаст дробь $\frac{n}{m}$
+    \item \texttt{atmla::Fraction f(int n)} - создаст дробь $\frac{n}{1}$
+    \item \texttt{atmla::Fraction f(double n)} - создаст дробь, которая с точностьую до 1e-5 будет равна n
+    \item Так же поддерживается потоковый ввод, например \texttt{std::cin {>}> f} - принимает строку, строка может быть двух видов:
+    \begin{description}
+        \item[Число] Целое число n - получится дробь $\frac{n}{1}$
+        \item[Дробь] Строка виде {n/m} - получится дробь $\frac{n}{m}$(n, m - целые числа)
+    \end{description}
+\end{enumerate}
+
 \section{Как взаимодействовать с объектами}
 На данный момент существует всего 2 класса, которые лежат в \texttt{namespace atmla} (увековечил своё имя). Для создания матрицы используйте:
-\begin{verbatim}
-atmla::Matrix{\textit{datatype}} name(parameters);
-\end{verbatim}
-\textit{datatype} может быть \texttt{int}, \texttt{double} или \texttt{atmla::Fraction}. Конструкторы бывают следующие:
+\\ \\
+atmla::Matrix<{\textit{datatype}}> name(parameters);
+\\ \\
+\textit{datatype} может быть \texttt{int}, \texttt{double} или \texttt{atmla::Fraction}(я рекомендую использовать atmla::Fraction). Конструкторы бывают следующие:
 
 \begin{enumerate}
     \item \texttt{matrix(int n, int m)} — создаёт пустую матрицу размером $n \times m$.
-    \item \texttt{matrix(std::vector<std::vector{\textit{datatype}}} values)} — создаёт матрицу из вектора \texttt{values} (не знаю, зачем это нужно). Тип данных \texttt{values} может отличаться от типа данных матрицы (всё нормально приведётся).
+    \item \texttt{matrix(std::vector<std::vector<{\textit{datatype}}{>}> values)} — создаёт матрицу из вектора \texttt{values} (не знаю, зачем это нужно). Тип данных \texttt{values} может отличаться от типа данных матрицы (всё нормально приведётся).
     \item \texttt{matrix(int n, std::string special, \textit{datatype} lambda)} — создаёт специальную матрицу размером $n \times n$. \texttt{special} может принимать следующие значения:
     \begin{itemize}
         \item \texttt{"identity"} — создаёт единичную матрицу.
@@ -48,8 +60,12 @@ atmla::Matrix{\textit{datatype}} name(parameters);
 После создания матрицы её размеры изменить нельзя, но можно менять значения. Для этого предусмотрены следующие методы класса:
 
 \begin{enumerate}
-    \item \texttt{matrix.Set\_values\_from\_vector(std::vector<std::vector{\textit{datatype}}} values)} — тип данных в векторе должен совпадать с типом данных матрицы. Эта функция просто запишет данные из вектора в матрицу.
+    \item \texttt{matrix.Set\_values\_from\_vector(std::vector<std::vector<{\textit{datatype}}{>}> values)} — тип данных в векторе должен совпадать с типом данных матрицы. Эта функция просто запишет данные из вектора в матрицу.
     \item \texttt{matrix.Set\_values\_manually()} — вводите все данные вручную.
+    \item Так же поддерживается потоковый ввод маттрицы \texttt{std::cin {>}> matrix}
+    \begin{description}
+        \item[ВАЖНО] на данней момент есть небольшая проблема, \texttt{atmla::Fraction} можно вводить только по одному элементу в строке.
+    \end{description} 
 \end{enumerate}
 
 \section{Функции вывода и операторы}
@@ -83,7 +99,6 @@ atmla::Matrix{\textit{datatype}} name(parameters);
     \item \texttt{matrix.Inverse()} — находит обратную матрицу.
 \end{enumerate}
 
-\section{Конец темы}
 Наводя курсор на функцию, вы увидите информацию о её параметрах и возможных ошибках.
 
 \section{Заключение}

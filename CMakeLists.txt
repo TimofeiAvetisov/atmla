@@ -12,7 +12,7 @@ include_directories(
     Source/Supporting/Fraction
 )
 
-add_executable(my_program
+add_executable(matrix
     #Source/Supporting/Vector/Vector_operations.cpp
     #Source/Supporting/Fraction/Fraction_constructors.cpp
     #Source/Supporting/Fraction/Fraction_operators.cpp

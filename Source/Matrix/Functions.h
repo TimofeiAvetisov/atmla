@@ -107,38 +107,38 @@ atmla::Matrix<T> atmla::Matrix<T>::Inverse() {
     if (det == T(0)) {
         throw std::runtime_error("Matrix is not invertible");
     }
-
+    atmla::Matrix<T> mat_copy(atmla::Matrix<T>::data);
     atmla::Matrix<T> result(atmla::Matrix<T>::height, static_cast<std::string>("identity"));
 
-    for (int i = 0; i < atmla::Matrix<T>::height; i++) {
-        if (atmla::Matrix<T>::data[i][i] == T(0)) {
-            for (int k = i + 1; k < atmla::Matrix<T>::height; ++k) {
-                if (atmla::Matrix<T>::data[k][i] != T(0)) {
-                    std::swap(atmla::Matrix<T>::data[i], atmla::Matrix<T>::data[k]);
+    for (int i = 0; i < mat_copy.height; i++) {
+        if (mat_copy.data[i][i] == T(0)) {
+            for (int k = i + 1; k < mat_copy.height; ++k) {
+                if (mat_copy.data[k][i] != T(0)) {
+                    std::swap(mat_copy.data[i], mat_copy.data[k]);
                     std::swap(result.data[i], result.data[k]);
                     break;
                 }
             }
         }
 
-        for (int j = i + 1; j < atmla::Matrix<T>::height; ++j) {
-            if (atmla::Matrix<T>::data[j][i] != T(0)) {
-                T factor = atmla::Matrix<T>::data[j][i];
-                atmla::Matrix<T>::data[j] = (atmla::Matrix<T>::data[j] * atmla::Matrix<T>::data[i][i]) - (atmla::Matrix<T>::data[i] * factor);
-                result.data[j] = (result.data[j] * atmla::Matrix<T>::data[i][i]) - (result.data[i] * factor);
+        for (int j = i + 1; j < mat_copy.height; ++j) {
+            if (mat_copy.data[j][i] != T(0)) {
+                T factor = mat_copy.data[j][i];
+                mat_copy.data[j] = (mat_copy.data[j] * mat_copy.data[i][i]) - (mat_copy.data[i] * factor);
+                result.data[j] = (result.data[j] * mat_copy.data[i][i]) - (result.data[i] * factor);
             }
         }
     }
 
-    for (int i = atmla::Matrix<T>::height - 1; i >= 0; --i) {
+    for (int i = mat_copy.height - 1; i >= 0; --i) {
         for (int j = i - 1; j >= 0; --j) {
-            T factor = atmla::Matrix<T>::data[j][i];
-            atmla::Matrix<T>::data[j] = (atmla::Matrix<T>::data[j] * atmla::Matrix<T>::data[i][i]) - (atmla::Matrix<T>::data[i] * factor);
-            result.data[j] = (result.data[j] * atmla::Matrix<T>::data[i][i]) - (result.data[i] * factor);
+            T factor = mat_copy.data[j][i];
+            mat_copy.data[j] = (mat_copy.data[j] * mat_copy.data[i][i]) - (mat_copy.data[i] * factor);
+            result.data[j] = (result.data[j] * mat_copy.data[i][i]) - (result.data[i] * factor);
         }
     }
-    for (int i = 0; i < atmla::Matrix<T>::height; ++i) {
-        result.data[i] = result.data[i] / atmla::Matrix<T>::data[i][i];
+    for (int i = 0; i < mat_copy.height; ++i) {
+        result.data[i] = result.data[i] / mat_copy.data[i][i];
     }
     return result;
 }

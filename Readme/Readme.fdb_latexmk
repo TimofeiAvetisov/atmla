@@ -1,7 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1726953120.34023 "c:/Users/Timofei/LA/Readme/Readme.tex" "Readme.pdf" "Readme" 1726953121.24348 2
+["pdflatex"] 1727100328.80283 "c:/Users/Timofei/LA/Readme/Readme.tex" "Readme.pdf" "Readme" 1727100329.61793 0
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1726953088 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1726684468 11548 38bbf0dd9662c3b0a4661ecded018c18 ""
+  "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1000.pk" 1727099716 23468 395f709e32f2e1ce9aee18b77a697cc0 ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/labx1440.pk" 1726950254 36852 44165f89530b69b26e1d568955a8c853 ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/lait1000.pk" 1726952696 26240 6b4f8be46d08177acb46b43e872f7251 ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1000.pk" 1726950252 22324 19190cb19feaea844fd45b4a3811a976 ""
@@ -9,6 +10,7 @@
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1728.pk" 1726950256 40148 01b06e0c555ed8b777d7d4c9434402df ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/lati1000.pk" 1726952698 31788 6fa327de9ce8171a30f2fb7cf8ffc96c ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/latt1000.pk" 1726950251 18748 29702031946e79fd7d226fad6d9f633e ""
+  "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/labx1000.tfm" 1727099709 3300 6abb8e321227ead2a8e929e5abc72bd3 ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1726950245 3304 6a543c07045572737981351171e0505e ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/lait1000.tfm" 1726952695 1272 d378cd4754e4c68b79935f80476d422f ""
   "C:/Users/Timofei/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1000.tfm" 1726950240 3220 0e417eaf233b160335902e97259a6c77 ""
@@ -33,6 +35,8 @@
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
+  "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1704647332 150008 7a05b0fdc0167c04e192003e780ab195 ""
@@ -93,10 +97,10 @@
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/Timofei/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "Readme.aux" 1726953120 1179 74e4dba875b944ad64e05404143c0848 "pdflatex"
-  "Readme.out" 1726953120 1293 b5cee9506e3485a0d99ddee563093f1d "pdflatex"
-  "Readme.tex" 1726953088 7252 560c6289beb523579c4ac36d77f8d2c1 ""
-  "c:/Users/Timofei/LA/Readme/Readme.tex" 1726953088 7252 560c6289beb523579c4ac36d77f8d2c1 ""
+  "Readme.aux" 1727100329 1063 26e52fbf8147a0bb27b4e745fc67e48d "pdflatex"
+  "Readme.out" 1727100329 1170 18a60dc9e85e71da6fcc471338af85d8 "pdflatex"
+  "Readme.tex" 1727100325 8718 57faeedf5e14a18295413f645c93f767 ""
+  "c:/Users/Timofei/LA/Readme/Readme.tex" 1727100325 8718 57faeedf5e14a18295413f645c93f767 ""
   (generated)
   "Readme.aux"
   "Readme.log"

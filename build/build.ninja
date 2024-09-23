@@ -36,37 +36,37 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/Timofei/LA/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target my_program
+# Object build statements for EXECUTABLE target matrix
 
 
 #############################################
-# Order-only phony target for my_program
+# Order-only phony target for matrix
 
-build cmake_object_order_depends_target_my_program: phony || .
+build cmake_object_order_depends_target_matrix: phony || .
 
-build CMakeFiles/my_program.dir/main.cpp.obj: CXX_COMPILER__my_program_unscanned_ C$:/Users/Timofei/LA/main.cpp || cmake_object_order_depends_target_my_program
-  DEP_FILE = CMakeFiles\my_program.dir\main.cpp.obj.d
+build CMakeFiles/matrix.dir/main.cpp.obj: CXX_COMPILER__matrix_unscanned_ C$:/Users/Timofei/LA/main.cpp || cmake_object_order_depends_target_matrix
+  DEP_FILE = CMakeFiles\matrix.dir\main.cpp.obj.d
   FLAGS = -std=gnu++1z
   INCLUDES = -IC:/Users/Timofei/LA/Header/Matrix -IC:/Users/Timofei/LA/Header/Supporting -IC:/Users/Timofei/LA/Source/Matrix -IC:/Users/Timofei/LA/Source/Supporting/Vector -IC:/Users/Timofei/LA/Source/Supporting/Fraction
-  OBJECT_DIR = CMakeFiles\my_program.dir
-  OBJECT_FILE_DIR = CMakeFiles\my_program.dir
+  OBJECT_DIR = CMakeFiles\matrix.dir
+  OBJECT_FILE_DIR = CMakeFiles\matrix.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target my_program
+# Link build statements for EXECUTABLE target matrix
 
 
 #############################################
-# Link the executable my_program.exe
+# Link the executable matrix.exe
 
-build my_program.exe: CXX_EXECUTABLE_LINKER__my_program_ CMakeFiles/my_program.dir/main.cpp.obj
+build matrix.exe: CXX_EXECUTABLE_LINKER__matrix_ CMakeFiles/matrix.dir/main.cpp.obj
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\my_program.dir
+  OBJECT_DIR = CMakeFiles\matrix.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = my_program.exe
-  TARGET_IMPLIB = libmy_program.dll.a
-  TARGET_PDB = my_program.exe.dbg
+  TARGET_FILE = matrix.exe
+  TARGET_IMPLIB = libmatrix.dll.a
+  TARGET_PDB = matrix.exe.dbg
 
 
 #############################################
@@ -94,7 +94,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build my_program: phony my_program.exe
+build matrix: phony matrix.exe
 
 # =============================================================================
 # Folder targets.
@@ -104,7 +104,7 @@ build my_program: phony my_program.exe
 #############################################
 # Folder: C:/Users/Timofei/LA/build
 
-build all: phony my_program.exe
+build all: phony matrix.exe
 
 # =============================================================================
 # Built-in targets
