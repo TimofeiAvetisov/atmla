@@ -1,30 +1,19 @@
-
-/**
- * @brief Computes the zonal polynomial for matrix.
- * 
- * This function returns the coefficients of the zonal polynomial.
- * 
- * @attention This is not matrix method.
- * @param matrix The matrix to find the zonal polynomial for.
- * @param var_name std::string name of the variable, "x" as default value.
- * @return atmla::Polynomial<atmla::Fraction> - zonal polynomial.
- * @throw std::invalid_argument If the matrix is not square.
- */
-atmla::Polynomial<atmla::Fraction> Zonal(atmla::Matrix<atmla::Fraction> matrix, std::string var_name) {
-    if (matrix.width != matrix.height) {
+template<typename T>
+atmla::Polynomial<atmla::Fraction> atmla::Matrix<T>::Zonal(/*atmla::Matrix<atmla::Fraction> matrix,*/std::string var_name) {
+    if (this->width != this->height) {
         throw std::invalid_argument("Matrix must be square to calculate its zonal polynomial");
     }
 
-    const size_t universal_size = matrix.width;
+    const size_t universal_size = this->width;
     const atmla::Fraction zero(0);
     std::vector<std::vector<atmla::Polynomial<atmla::Fraction>>> poly_matr(universal_size, std::vector<atmla::Polynomial<atmla::Fraction>>(universal_size));
 
     for (int i = 0; i < universal_size; ++i) {
         for (int j = 0; j < universal_size; ++j) {
             if (i == j) {
-                poly_matr[i][j] = typename atmla::Polynomial<atmla::Fraction>::Polynomial({matrix.data[i][j], atmla::Fraction(-1)}, var_name);
+                poly_matr[i][j] = typename atmla::Polynomial<atmla::Fraction>::Polynomial({atmla::Fraction(this->data[i][j]), atmla::Fraction(-1)}, var_name);
             } else {
-               poly_matr[i][j] = typename atmla::Polynomial<atmla::Fraction>::Polynomial({matrix.data[i][j]}, var_name);
+               poly_matr[i][j] = typename atmla::Polynomial<atmla::Fraction>::Polynomial({atmla::Fraction(this->data[i][j])}, var_name);
             }
         }
     }
@@ -56,5 +45,5 @@ atmla::Polynomial<atmla::Fraction> Zonal(atmla::Matrix<atmla::Fraction> matrix, 
         }
     }
 
-    std::cout << poly_matr[universal_size - 1][universal_size - 1];
+    return poly_matr[universal_size - 1][universal_size - 1];
 }

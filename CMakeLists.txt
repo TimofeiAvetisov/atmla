@@ -14,13 +14,5 @@ include_directories(
 )
 
 add_executable(matrix
-    #Source/Supporting/Vector/Vector_operations.cpp
-    #Source/Supporting/Fraction/Fraction_constructors.cpp
-    #Source/Supporting/Fraction/Fraction_operators.cpp
-    #Source/Matrix/Constructor.cpp
-    #Source/Matrix/Operations.cpp
-    #Source/Matrix/Output.cpp
-    #Source/Matrix/Scalar_operations.cpp
-    #Source/Matrix/Functions.cpp
     main.cpp
 )

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/timofei/atmla/build",
+  "command": "/usr/bin/g++  -I/home/timofei/atmla/Header/Matrix -I/home/timofei/atmla/Header/Supporting -I/home/timofei/atmla/Source/Matrix -I/home/timofei/atmla/Source/Supporting/Vector -I/home/timofei/atmla/Source/Supporting/Fraction -I/home/timofei/atmla/Source/Supporting/Polynomial -g -std=gnu++17 -o CMakeFiles/matrix.dir/main.cpp.o -c /home/timofei/atmla/main.cpp",
+  "file": "/home/timofei/atmla/main.cpp",
+  "output": "CMakeFiles/matrix.dir/main.cpp.o"
+}
+]

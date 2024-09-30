@@ -139,6 +139,16 @@ namespace atmla
              * @throw std::runtime_error If the matrix is not invertible.
              */
             Matrix<T> Inverse();
+            /**
+             * @brief Computes the zonal polynomial for matrix.
+             * 
+             * This function returns the coefficients of the zonal polynomial.
+             * 
+             * @param var_name std::string name of the variable, "x" as default value.
+             * @return atmla::Polynomial<atmla::Fraction> - zonal polynomial.
+             * @throw std::invalid_argument If the matrix is not square.
+             */
+            atmla::Polynomial<atmla::Fraction> Zonal(std::string var_name);
             
             // Matrix operations with scalar
             Matrix<T> operator+(T scalar);
@@ -170,7 +180,7 @@ namespace atmla
 #include "../../Source/Matrix/Constructor.h"
 #include "../../Source/Matrix/Operations.h"
 #include "../../Source/Matrix/Scalar_operations.h"
-#include "../../Source/Matrix/output.h"
+#include "../../Source/Matrix/Output.h"
 #include "../../Source/Matrix/Functions.h"
 #include "../../Source/Matrix/Zonal.h"
 

@@ -5,5 +5,5 @@ int main() {
     std::cin >> n;
     atmla::Matrix<atmla::Fraction> matrix(n, n);
     std::cin >> matrix;
-    Zonal(matrix, "x"); 
+    std::cout << matrix.Zonal("a"); 
 }

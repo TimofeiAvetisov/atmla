@@ -48,8 +48,8 @@ namespace atmla {
                     f.denominator = std::stoi(input.substr(slash_pos + 1));
                 }
                 f.simplify();
+                return is;
             }
-
     };
 }
 
