@@ -47,7 +47,7 @@ build cmake_object_order_depends_target_matrix: phony || .
 build CMakeFiles/matrix.dir/main.cpp.obj: CXX_COMPILER__matrix_unscanned_ C$:/Users/Timofei/LA/main.cpp || cmake_object_order_depends_target_matrix
   DEP_FILE = CMakeFiles\matrix.dir\main.cpp.obj.d
   FLAGS = -std=gnu++1z
-  INCLUDES = -IC:/Users/Timofei/LA/Header/Matrix -IC:/Users/Timofei/LA/Header/Supporting -IC:/Users/Timofei/LA/Source/Matrix -IC:/Users/Timofei/LA/Source/Supporting/Vector -IC:/Users/Timofei/LA/Source/Supporting/Fraction
+  INCLUDES = -IC:/Users/Timofei/LA/Header/Matrix -IC:/Users/Timofei/LA/Header/Supporting -IC:/Users/Timofei/LA/Source/Matrix -IC:/Users/Timofei/LA/Source/Supporting/Vector -IC:/Users/Timofei/LA/Source/Supporting/Fraction -IC:/Users/Timofei/LA/Source/Supporting/Polynomial
   OBJECT_DIR = CMakeFiles\matrix.dir
   OBJECT_FILE_DIR = CMakeFiles\matrix.dir
 

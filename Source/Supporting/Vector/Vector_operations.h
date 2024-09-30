@@ -44,7 +44,3 @@ std::vector<T> operator/(std::vector<T>& v, T scalar) {
     }
     return result;
 }
-
-template class std::vector<int>;
-template class std::vector<double>;
-template class std::vector<atmla::Fraction>;

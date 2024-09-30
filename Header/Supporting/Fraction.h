@@ -53,6 +53,6 @@ namespace atmla {
     };
 }
 
-atmla::Fraction abs(atmla::Fraction& f) {return atmla::Fraction(abs(f.numerator), abs(f.denominator));};
+atmla::Fraction abs(const atmla::Fraction f) {return atmla::Fraction(abs(f.numerator), abs(f.denominator));};
 #include "../../Source/Supporting/Fraction/Fraction_constructors.h"
 #include "../../Source/Supporting/Fraction/Fraction_operators.h"

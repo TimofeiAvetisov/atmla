@@ -2,6 +2,7 @@
 #include <valarray>
 #include "../Supporting/Fraction.h"
 #include "../Supporting/Vector_operations.h"
+#include "../Supporting/Polynomial.h"
 
 namespace atmla
 {
@@ -138,7 +139,7 @@ namespace atmla
              * @throw std::runtime_error If the matrix is not invertible.
              */
             Matrix<T> Inverse();
-
+            
             // Matrix operations with scalar
             Matrix<T> operator+(T scalar);
             Matrix<T> operator-(T scalar);
@@ -171,6 +172,19 @@ namespace atmla
 #include "../../Source/Matrix/Scalar_operations.h"
 #include "../../Source/Matrix/output.h"
 #include "../../Source/Matrix/Functions.h"
+#include "../../Source/Matrix/Zonal.h"
+
 template class atmla::Matrix<int>;
 template class atmla::Matrix<double>;
 template class atmla::Matrix<atmla::Fraction>;
+
+template class std::vector<int>;
+template class std::vector<double>;
+template class std::vector<atmla::Fraction>;
+template class std::vector<atmla::Polynomial<int>>;
+template class std::vector<atmla::Polynomial<double>>;
+template class std::vector<atmla::Polynomial<atmla::Fraction>>;
+
+template class atmla::Polynomial<int>;
+template class atmla::Polynomial<double>;
+template class atmla::Polynomial<atmla::Fraction>;

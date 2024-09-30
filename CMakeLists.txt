@@ -10,6 +10,7 @@ include_directories(
     Source/Matrix
     Source/Supporting/Vector
     Source/Supporting/Fraction
+    Source/Supporting/Polynomial
 )
 
 add_executable(matrix
