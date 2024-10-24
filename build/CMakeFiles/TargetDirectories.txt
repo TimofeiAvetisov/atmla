@@ -1,3 +1,0 @@
-/home/timofei/atmla/build/CMakeFiles/matrix.dir
-/home/timofei/atmla/build/CMakeFiles/edit_cache.dir
-/home/timofei/atmla/build/CMakeFiles/rebuild_cache.dir

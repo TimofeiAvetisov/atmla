@@ -5,5 +5,5 @@ int main() {
     std::cin >> n;
     atmla::Matrix<atmla::Fraction> matrix(n, n);
     std::cin >> matrix;
-    std::cout << matrix.Zonal("a"); 
+    std::cout << matrix.Determinant();
 }

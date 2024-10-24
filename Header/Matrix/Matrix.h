@@ -1,3 +1,5 @@
+#ifndef MATRIX_CLASS
+#define MATRIX_CLASS
 #include <bits/stdc++.h>
 #include <valarray>
 #include "../Supporting/Fraction.h"
@@ -198,3 +200,5 @@ template class std::vector<atmla::Polynomial<atmla::Fraction>>;
 template class atmla::Polynomial<int>;
 template class atmla::Polynomial<double>;
 template class atmla::Polynomial<atmla::Fraction>;
+
+#endif
